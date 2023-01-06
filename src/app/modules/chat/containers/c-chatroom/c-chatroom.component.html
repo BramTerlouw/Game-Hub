@@ -1,0 +1,14 @@
+<div class="chat-controls">
+  <app-chatroom-info 
+    [roomData]="roomData">
+  </app-chatroom-info>
+
+  <div class="chats-container m-t--l m-b--l">
+    <app-chat-message 
+      *ngFor="let message of messages" 
+      [chatData]="message">
+    </app-chat-message>
+  </div>
+
+  <app-chat-input class=""></app-chat-input>
+</div>

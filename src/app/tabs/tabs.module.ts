@@ -2,6 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GlobalModule } from '../modules/global.module';
 
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
@@ -12,8 +13,9 @@ import { TabsPage } from './tabs.page';
     IonicModule,
     CommonModule,
     FormsModule,
+    GlobalModule,
     TabsPageRoutingModule
   ],
   declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule { }

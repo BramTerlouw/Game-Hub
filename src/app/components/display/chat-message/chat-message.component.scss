@@ -1,0 +1,39 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    
+    .user-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--send {
+            justify-content: flex-end;
+        }
+
+        p {
+            margin: -6px 0 0 4px;
+            color: var(--white);
+            font-weight: 600;
+        }
+    }
+
+    .message-container {
+        padding: 10px;
+        display: flex;
+
+        border: none;
+        border-radius: 10px;
+
+        color: var(--white);
+        background-color: var(--gray-dark);
+        
+        &--send {
+            align-self: flex-end;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

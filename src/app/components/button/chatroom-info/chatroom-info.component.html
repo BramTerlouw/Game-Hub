@@ -1,0 +1,50 @@
+<div class="container">
+  <p class="room-name">
+    Room: {{roomData.id}}
+  </p>
+  
+  <div class="block">
+    <app-icon-template
+      *ngIf="!isCollapsed" 
+      icon="info-outline" 
+      [size]="30"
+      (click)="collapseData()">
+    </app-icon-template>
+  </div>
+</div>
+
+<div *ngIf="isCollapsed" class="container-details">
+  <ul>
+    <li>Date: 
+      <span>
+        {{date}}
+      </span>
+    </li>
+    <li>Time: 
+      <span>
+        {{time}}
+      </span>
+    </li>
+    <li>Creator: 
+      <span>
+        {{roomData.creator}}
+      </span>
+    </li>
+    <li>Participants: 
+      <span>
+        {{roomData.participants}}
+      </span>
+    </li>
+  </ul>
+
+  <app-icon-template 
+    icon="cross" 
+    [size]="20"
+    class="close-btn"
+    (click)="collapseData()">
+  </app-icon-template>
+</div>
+
+<div class="background-cover">
+  
+</div>

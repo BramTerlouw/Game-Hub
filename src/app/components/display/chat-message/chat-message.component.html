@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div 
+    class="user-container" 
+    [class.user-container--send]="chatData.username === currentUsername">
+    <app-icon-template 
+      icon="chat-person-icon" 
+      fill="#FFF" 
+      [size]="20">
+    </app-icon-template>
+    
+    <p>
+      {{chatData.username}}
+    </p>
+  </div>
+  
+  <div 
+    class="message-container" 
+    [class.message-container--send]="chatData.username === currentUsername">
+    <p>
+      {{chatData.message}}
+    </p>
+  </div>
+</div>
