@@ -1,0 +1,20 @@
+<div class="join-panel p--l">
+  <div class="input-container">
+    <app-menu-input
+      inputName="inputUsername"
+      placeholder="Username"
+      control="username"
+      [form]="myForm"></app-menu-input>
+
+    <app-menu-input
+      inputName="inputRoomcode"
+      placeholder="Roomcode"
+      control="roomcode"
+      [form]="myForm"></app-menu-input>
+  </div>
+
+  <app-confirmation-rounded 
+    text="Enter"
+    (click)="navigateTo('/chat')">
+  </app-confirmation-rounded>
+</div>

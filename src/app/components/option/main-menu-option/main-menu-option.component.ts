@@ -8,9 +8,17 @@ import { Router } from '@angular/router';
 })
 export class MainMenuOptionComponent {
 
-  @Input() option: string = 'default';
   @Input() theme: string = 'default';
-  @Input() path: string = 'chat';
+
+  @Input() option: string = 'default';
+  @Input() collapsed_option1: string = 'default';
+  @Input() collapsed_option2: string = 'default';
+
+  @Input() path1: string = '';
+  @Input() path2: string = '';
+
+
+  optionsCollapsed: boolean = true;
 
   constructor(
     private router: Router,
@@ -18,5 +26,9 @@ export class MainMenuOptionComponent {
 
   navigateTo = (path: string) => {
     this.router.navigate([path]);
+  };
+
+  collapseOptions = () => {
+    this.optionsCollapsed = !this.optionsCollapsed;
   };
 }

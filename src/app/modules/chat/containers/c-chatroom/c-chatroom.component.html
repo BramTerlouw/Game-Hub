@@ -10,5 +10,5 @@
     </app-chat-message>
   </div>
 
-  <app-chat-input class=""></app-chat-input>
+  <app-chat-input (messageEmitter)="handleMessage($event)"></app-chat-input>
 </div>

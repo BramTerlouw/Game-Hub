@@ -5,6 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class ChatService {
 
+  messages = [
+    {
+      username: 'marbwoulret',
+      message: 'Hello guys! Ready to play a game?',
+      timestamp: '12:00:00',
+    },
+    {
+      username: 'leroy072',
+      message: 'Howdy boys, lets get this bread shall we?',
+      timestamp: '12:00:20',
+    }
+  ];
+
   constructor() { }
 
   fetchRoom = () => {
@@ -16,19 +29,11 @@ export class ChatService {
   }
 
   fetchMessages = () => {
-    return [
-      {
-        username: 'marbwoulret',
-        message: 'Hello guys! Ready to play a game?',
-        timestamp: '12:00:00',
-      },
-      {
-        username: 'leroy072',
-        message: 'Howdy boys, lets get this bread shall we?',
-        timestamp: '12:00:20',
-      }
-    ];
+    return this.messages;
   };
 
-  sendMessage = () => { };
+  sendMessage = (
+    message: { username: string; message: string; timestamp: string; }) => { 
+    this.messages.push(message);
+  };
 }

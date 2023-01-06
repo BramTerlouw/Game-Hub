@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-menu-input',
@@ -8,12 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuInputComponent implements OnInit {
 
   @Input() inputName!: string;
-  @Input() placeholder!: string;
+  @Input() placeholder?: string;
+  
+  @Input() form!: FormGroup;
+  @Input() control!: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.placeholder = 'Username'
     this.placeholder = this.placeholder + ' . . .';
   }
 

@@ -1,4 +1,4 @@
-button {
+.rounded-btn {
     width: 100%;
     padding: 20px;
 
@@ -7,6 +7,11 @@ button {
 
     background-color: var(--gray-light);
     color: var(--black);
-    font-weight: 500;
-    font-size: 32px;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+
+    &--flat {
+        border-radius: 20px;
+    }
 }

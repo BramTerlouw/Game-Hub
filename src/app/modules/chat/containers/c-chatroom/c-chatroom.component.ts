@@ -29,4 +29,17 @@ export class CChatroomComponent implements OnInit {
     this.messages = this.chatService.fetchMessages();
   }
 
+  sendMessage = (
+    message: { username: string; message: string; timestamp: string; }) => {
+    this.chatService.sendMessage(message);
+  }
+
+  handleMessage(message: string) {
+    this.sendMessage({
+      username: 'marbwoulret', 
+      message: message, 
+      timestamp: '12:00:00'
+    })
+  }
+
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MainMenuOptionComponent } from '../components/option/main-menu-option/main-menu-option.component';
 import { ConfirmationRoundedComponent } from '../components/button/confirmation-rounded/confirmation-rounded.component';
@@ -22,7 +23,9 @@ import { ChatMessageComponent } from '../components/display/chat-message/chat-me
     ChatMessageComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MainMenuOptionComponent,

@@ -3,10 +3,29 @@
     {{option}}
   </p>
   
-  <div class="block" (click)="navigateTo(path)">
+  <div 
+    class="block" 
+    [class.block--rotated]="!optionsCollapsed" 
+    (click)="collapseOptions()">
     <app-icon-template 
       icon="arrow-right" 
       [size]="20">
     </app-icon-template>
   </div>
+</div>
+
+<div 
+  *ngIf="!optionsCollapsed" 
+  class="collapsed-options">
+  <app-confirmation-rounded 
+    [flat]="true" 
+    text="{{collapsed_option1}}"
+    (click)="navigateTo(path1)">
+  </app-confirmation-rounded>
+  
+  <app-confirmation-rounded 
+    [flat]="true" 
+    text="{{collapsed_option2}}"
+    (click)="navigateTo(path2)">
+  </app-confirmation-rounded>
 </div>

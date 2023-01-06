@@ -8,3 +8,22 @@
     font-size: 24px;
     background-color: var(--gray-light);
 }
+
+.menu-input:focus {
+    outline: none;
+}
+
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+    color: var(--gray-normal);
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+    color: var(--gray-normal);
+}
+
+/* Microsoft Edge */
+::-ms-input-placeholder {
+    color: var(--gray-normal);
+}

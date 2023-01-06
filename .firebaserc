@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "game-hub-45e78": {
+      "hosting": {
+        "app": [
+          "game-hub-45e78"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "game-hub-45e78"
+  }
+}

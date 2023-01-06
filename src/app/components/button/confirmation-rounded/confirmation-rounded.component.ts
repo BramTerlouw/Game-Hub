@@ -7,7 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ConfirmationRoundedComponent implements OnInit {
 
+  @Input() text: string = 'default';
   @Input() theme: 'light' | 'dark' = 'light';
+  @Input() flat: boolean = false;
 
   constructor() { }
 

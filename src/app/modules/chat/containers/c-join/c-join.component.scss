@@ -1,0 +1,15 @@
+.join-panel {
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    border-radius: 30px;
+    background-color: var(--bg-light);
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
