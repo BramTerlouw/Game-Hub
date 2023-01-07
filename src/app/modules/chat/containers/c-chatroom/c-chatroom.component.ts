@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../../services/chat.service';
+import { ChatService2 } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-c-chatroom',
@@ -8,30 +8,35 @@ import { ChatService } from '../../services/chat.service';
 })
 export class CChatroomComponent implements OnInit {
 
-  roomData!: {
+  roomData: {
     id: string,
     creator: string,
     participants: number
+  } = {
+    id: '1',
+    creator: 'marbwoulret',
+    participants: 2
   };
 
   messages: {
-    username: string,
-    message: string,
-    timestamp: string,
+    username: any,
+    message: any,
+    timestamp: any,
   }[] = [];
 
   constructor(
-    private chatService: ChatService,
+    private chatService: ChatService2,
   ) { }
 
   ngOnInit() {
-    this.roomData = this.chatService.fetchRoom();
-    this.messages = this.chatService.fetchMessages();
+    this.chatService.getMessages().then((res) => {
+      this.messages.push(...res);
+    })
   }
 
   sendMessage = (
     message: { username: string; message: string; timestamp: string; }) => {
-    this.chatService.sendMessage(message);
+    this.chatService.createMessage(message);
   }
 
   handleMessage(message: string) {
