@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService2 } from 'src/app/services/chat.service';
+import { Message } from 'src/app/schematics/message';
+import { Room } from 'src/app/schematics/room';
 
 @Component({
   selector: 'app-c-chatroom',
@@ -8,43 +10,40 @@ import { ChatService2 } from 'src/app/services/chat.service';
 })
 export class CChatroomComponent implements OnInit {
 
-  roomData: {
-    id: string,
-    creator: string,
-    participants: number
-  } = {
-    id: '1',
-    creator: 'marbwoulret',
-    participants: 2
-  };
-
-  messages: {
-    username: any,
-    message: any,
-    timestamp: any,
-  }[] = [];
+  roomData: Room = { id: '1', creator: 'marbwoulret', participants: 2 };
+  messages: Message[] = [];
 
   constructor(
     private chatService: ChatService2,
   ) { }
 
   ngOnInit() {
-    this.chatService.getMessages().then((res) => {
-      this.messages.push(...res);
-    })
+    this.getMessages();
   }
 
+  getMessages = () => {
+    this.chatService.getMessages().subscribe((res) => {
+      this.messages = res;
+      setTimeout(() => this.displayBottomDiv());
+    })
+  };
+
   sendMessage = (
-    message: { username: string; message: string; timestamp: string; }) => {
+    message: Message) => {
     this.chatService.createMessage(message);
   }
 
-  handleMessage(message: string) {
+  handleEmit(message: string) {
     this.sendMessage({
       username: 'marbwoulret', 
       message: message, 
-      timestamp: '12:00:00'
+      timestamp: new Date().toISOString(),
     })
+  }
+
+  displayBottomDiv = () => {
+    let element = document.getElementById('scroll');
+    if (element) element.scrollTop = element.scrollHeight;
   }
 
 }
