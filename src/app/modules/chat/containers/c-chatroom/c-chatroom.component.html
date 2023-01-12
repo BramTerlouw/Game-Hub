@@ -1,8 +1,8 @@
 <div class="chat-controls">
   <app-chatroom-info 
-    [id]="roomData.id"
-    [creator]="roomData.creator"
-    [participants]="roomData.participants">
+    [id]="roomData?.id"
+    [creator]="roomData?.uid"
+    [participants]="roomData?.count">
   </app-chatroom-info>
 
   <div id="scroll" class="chats-container m-t--l m-b--l">

@@ -24,6 +24,13 @@ export class CLoginComponent implements OnInit {
     });
   }
 
+
+
+  /**
+   * handleLogin
+   * * This method is used to handle the login process
+   * 
+   */
   handleLogin = () => {
     const credentials = { email: this.myForm.controls['email'].value, password: this.myForm.controls['password'].value };
 
@@ -37,6 +44,15 @@ export class CLoginComponent implements OnInit {
       })
   };
 
+
+
+  /**
+   * navigateTo
+   * * This method is used to navigate to a specific path
+   * 
+   * @param path Parameter containing the path to navigate to
+   * 
+   */
   navigateTo = (path: string) => {
     this.router.navigate([path]);
   };

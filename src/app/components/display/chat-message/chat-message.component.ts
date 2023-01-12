@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-chat-message',
@@ -6,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./chat-message.component.scss'],
 })
 export class ChatMessageComponent implements OnInit {
+
+  uid?: string;
 
   @Input() chatData!: {
     username: string,
@@ -15,8 +18,10 @@ export class ChatMessageComponent implements OnInit {
 
   currentUsername = 'marbwoulret';
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.auth.getUser().then((user) => {this.uid = user.uid});
+  }
 
 }

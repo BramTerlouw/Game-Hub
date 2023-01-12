@@ -25,6 +25,13 @@ export class CRegistrationComponent implements OnInit {
     });
   }
 
+
+
+  /**
+   * handleRegistration
+   * * This method is used to handle the registration process
+   * 
+   */
   HandleRegistration = () => {
     this.auth.signUp(
       {
@@ -35,6 +42,15 @@ export class CRegistrationComponent implements OnInit {
     )
   }
 
+
+
+  /**
+   * navigateTo
+   * * This method is used to navigate to a specific path
+   * 
+   * @param path Parameter containing tha path to navigate to
+   * 
+   */
   navigateTo = (path: string) => {
     this.router.navigate([path]);
   };

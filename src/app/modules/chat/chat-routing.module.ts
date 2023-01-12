@@ -6,7 +6,7 @@ import { JoinChatPage } from './pages/join-chat/join-chat.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'room/:id',
     component: ChatroomPage,
   },
   {

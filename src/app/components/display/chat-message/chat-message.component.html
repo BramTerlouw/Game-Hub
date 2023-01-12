@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div 
     class="user-container" 
-    [class.user-container--send]="chatData.username === currentUsername">
+    [class.user-container--send]="chatData.username === uid">
     <app-icon-template 
       icon="chat-person-icon" 
       fill="#FFF" 
@@ -15,7 +15,7 @@
   
   <div 
     class="message-container" 
-    [class.message-container--send]="chatData.username === currentUsername">
+    [class.message-container--send]="chatData.username === uid">
     <p>
       {{chatData.message}}
     </p>

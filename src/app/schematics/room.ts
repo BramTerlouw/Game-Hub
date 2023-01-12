@@ -1,5 +1,5 @@
 export interface Room {
     id: string,
-    creator: string,
-    participants: number
+    uid: string,
+    count: number
 }

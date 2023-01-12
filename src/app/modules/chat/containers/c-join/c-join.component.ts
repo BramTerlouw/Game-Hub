@@ -17,12 +17,19 @@ export class CJoinComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      username: [''],
       roomcode: [''],
     });
   }
 
-  navigateTo = (path: string) => {
-    this.router.navigate([path]);
+  /**
+   * navigateTo
+   * * Method to navigate to chatroom with roomcode from form.
+   * 
+   * TODO: Add validation for roomcode.
+   */
+  navigateTo = () => {
+    if (this.myForm.value['roomcode'] !== '') {
+      this.router.navigate(['/chat/room/' + this.myForm.value['roomcode']]);
+    }
   };
 }

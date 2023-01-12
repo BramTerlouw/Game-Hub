@@ -32,7 +32,7 @@ export class ChatService implements OnInit {
    * 
    * Todo: NULL check
    */
-  createRoom = () => {
+  createRoom = (roomRef: string) => {
     let data: { uid: string, createdAt: number, count: number, messages: any[] };
 
     this.auth.getUser().then(async (user) => {
@@ -43,8 +43,8 @@ export class ChatService implements OnInit {
         messages: []
       }
 
-      const docRef = await this.db.collection('chats').add(data);
-      this.router.navigate([`/chat/${docRef.id}`]);
+      const docRef = await this.db.collection('chats').doc(roomRef).set(data);
+      this.router.navigate([`/chat/${roomRef}`]);
 
     });
   }
