@@ -30,7 +30,6 @@ export class ChatService implements OnInit {
    * createRoom
    * * Method used to create a new chat room.
    * 
-   * Todo: NULL check
    */
   createRoom = (roomRef: string) => {
     let data: { uid: string, createdAt: number, count: number, messages: any[] };
@@ -57,7 +56,6 @@ export class ChatService implements OnInit {
    * @param chatRef Parameter for chatroom id.
    * @param message Parameter for message to send.
    * 
-   * Todo: Add message to array.
    */
   sendMessage = (chatRef: string, message: string) => {
     let data: { uid: string, message: string, createdAt: number };
@@ -80,8 +78,6 @@ export class ChatService implements OnInit {
 
 
   /**
-   * *TEMPORARY*
-   * 
    * getMessages
    * * Method used to get the messages from the chat room.
    * 
