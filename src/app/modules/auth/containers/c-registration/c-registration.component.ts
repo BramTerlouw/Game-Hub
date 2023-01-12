@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,9 +19,9 @@ export class CRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      email: [''],
-      username: [''],
-      password: ['']
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -40,6 +40,8 @@ export class CRegistrationComponent implements OnInit {
         displayName: this.myForm.controls['username'].value
       }
     )
+
+    this.myForm.reset();
   }
 
 

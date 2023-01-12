@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,8 +19,8 @@ export class CLoginComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
   }
 
@@ -36,12 +36,13 @@ export class CLoginComponent implements OnInit {
 
     this.auth.signIn(credentials)
       .then((res) => {
-        console.log(res);
         this.navigateTo('/home');
       })
       .catch((err) => {
         alert(err);
       })
+
+      this.myForm.reset();
   };
 
 

@@ -28,3 +28,12 @@
 ::-ms-input-placeholder {
     color: var(--gray-normal);
 }
+
+.error-container {
+    padding: 5px;
+
+    .error-message {
+        color: var(--red);
+        margin: 0;
+    }
+}

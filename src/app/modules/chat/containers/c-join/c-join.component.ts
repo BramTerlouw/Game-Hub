@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { docSnapshots } from '@angular/fire/firestore';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
 
@@ -20,7 +20,7 @@ export class CJoinComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      roomcode: [''],
+      roomcode: ['', [Validators.required]],
     });
   }
 
@@ -41,6 +41,8 @@ export class CJoinComponent implements OnInit {
         alert('Room does not exist');
       }
     })
+
+    this.myForm.reset();
   };
 
 

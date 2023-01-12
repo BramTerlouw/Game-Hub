@@ -14,6 +14,7 @@ export class MenuInputComponent implements OnInit {
   
   @Input() form!: FormGroup;
   @Input() control!: string;
+  @Input() errorMessage!: string;
 
   constructor() { }
 

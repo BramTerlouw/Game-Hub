@@ -5,4 +5,10 @@
     placeholder="{{placeholder}}"
     class="menu-input"
     formControlName="{{control}}">
+
+    <div *ngIf="form.controls[control].invalid && form.controls[control].touched" class="error-container">
+      <p class="error-message">
+        {{errorMessage}}
+      </p>
+    </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
 
@@ -19,7 +19,7 @@ export class CCreateComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      roomcode: [''],
+      roomcode: ['', [Validators.required]],
     });
   }
 
@@ -41,6 +41,8 @@ export class CCreateComponent implements OnInit {
         this.chatService.createRoom(this.myForm.controls['roomcode'].value);
       }
     })
+
+    this.myForm.reset();
   };
 
 
