@@ -1,3 +1,16 @@
-<p>
-  c-create works!
-</p>
+<div class="create-panel p--l">
+  <div class="input-container">
+
+    <app-menu-input
+      inputName="inputRoomcode"
+      placeholder="Roomcode"
+      control="roomcode"
+      [form]="myForm">
+    </app-menu-input>
+  </div>
+
+  <app-confirmation-rounded 
+    text="Enter"
+    (click)="handleCreate()">
+  </app-confirmation-rounded>
+</div>

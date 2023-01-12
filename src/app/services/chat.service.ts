@@ -44,7 +44,7 @@ export class ChatService implements OnInit {
       }
 
       const docRef = await this.db.collection('chats').doc(roomRef).set(data);
-      this.router.navigate([`/chat/${roomRef}`]);
+      this.router.navigate([`/chat/room/${roomRef}`]);
 
     });
   }

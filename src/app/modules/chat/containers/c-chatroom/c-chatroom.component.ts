@@ -60,7 +60,7 @@ export class CChatroomComponent implements OnInit {
    * @param message Paramater for message to send.
    */
   sendMessage = (message: string) => {
-    this.chatService.sendMessage('rFYrksAgB3F824V7ffov', message);
+    this.chatService.sendMessage(this.getUrlParam(), message);
   }
 
 
