@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class MenuInputComponent implements OnInit {
 
+  @Input() type: string = 'text';
   @Input() inputName!: string;
   @Input() placeholder?: string;
   

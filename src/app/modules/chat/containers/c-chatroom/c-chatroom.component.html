@@ -1,12 +1,14 @@
 <div class="chat-controls">
   <app-chatroom-info 
-    [roomData]="roomData">
+    [id]="roomData.id"
+    [creator]="roomData.creator"
+    [participants]="roomData.participants">
   </app-chatroom-info>
 
   <div id="scroll" class="chats-container m-t--l m-b--l">
     <app-chat-message 
-      *ngFor="let message of messages" 
-      [chatData]="message">
+      *ngFor="let message of chatMessages" 
+      [chatData]="{username: message.uid, message: message.message, timestamp: message.createdAt}">
     </app-chat-message>
   </div>
 

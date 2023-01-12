@@ -10,7 +10,7 @@ export class ChatMessageComponent implements OnInit {
   @Input() chatData!: {
     username: string,
     message: string,
-    timestamp: string,
+    timestamp: number,
   }
 
   currentUsername = 'marbwoulret';

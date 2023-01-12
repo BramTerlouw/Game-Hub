@@ -1,0 +1,23 @@
+<div class="login-panel p--l">
+  <div class="input-container">
+    <app-menu-input
+      inputName="inputEmail"
+      placeholder="Emailaddress"
+      control="email"
+      [form]="myForm">
+    </app-menu-input>
+
+    <app-menu-input
+      type="password"
+      inputName="inputPassword"
+      placeholder="Password"
+      control="password"
+      [form]="myForm">
+    </app-menu-input>
+  </div>
+
+  <app-confirmation-rounded
+    text="Enter"
+    (click)="handleLogin()">
+  </app-confirmation-rounded>
+</div>

@@ -1,5 +1,5 @@
 export interface Message {
-    username: string,
+    uid: string,
     message: string,
-    timestamp: string,
+    createdAt: number,
 }

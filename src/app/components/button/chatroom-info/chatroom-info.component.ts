@@ -7,11 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChatroomInfoComponent implements OnInit {
 
-  @Input() roomData!: {
-    id: string,
-    creator: string,
-    participants: number
-  };
+  @Input() id?: string;
+  @Input() creator?: string;
+  @Input() participants?: number;
 
   public date: string = new Date().toDateString();
   public time: string = new Date().toLocaleTimeString();

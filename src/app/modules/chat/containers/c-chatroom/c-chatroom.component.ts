@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService2 } from 'src/app/services/chat.service';
+import { ChatService } from 'src/app/services/chat.service';
 import { Message } from 'src/app/schematics/message';
 import { Room } from 'src/app/schematics/room';
 
@@ -11,10 +11,12 @@ import { Room } from 'src/app/schematics/room';
 export class CChatroomComponent implements OnInit {
 
   roomData: Room = { id: '1', creator: 'marbwoulret', participants: 2 };
-  messages: Message[] = [];
+
+  chat!: any;
+  chatMessages?: Message[];
 
   constructor(
-    private chatService: ChatService2,
+    private chatService: ChatService,
   ) { }
 
   ngOnInit() {
@@ -22,23 +24,25 @@ export class CChatroomComponent implements OnInit {
   }
 
   getMessages = () => {
-    this.chatService.getMessages().subscribe((res) => {
-      this.messages = res;
+    this.chatService.getMessages('rFYrksAgB3F824V7ffov').subscribe((res) => {
+      this.chat = res;
+      this.chatMessages = res.messages;
+      
+      this.roomData.id = res.id;
+      this.roomData.creator = res.uid;
+      this.roomData.participants = res.count;
+
       setTimeout(() => this.displayBottomDiv());
     })
   };
 
   sendMessage = (
-    message: Message) => {
-    this.chatService.createMessage(message);
+    message: string) => {
+    this.chatService.sendMessage('rFYrksAgB3F824V7ffov',message);
   }
 
   handleEmit(message: string) {
-    this.sendMessage({
-      username: 'marbwoulret', 
-      message: message, 
-      timestamp: new Date().toISOString(),
-    })
+    this.sendMessage(message);
   }
 
   displayBottomDiv = () => {
