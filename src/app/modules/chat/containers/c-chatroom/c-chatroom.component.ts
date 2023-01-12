@@ -30,6 +30,7 @@ export class CChatroomComponent implements OnInit {
    * getMessages
    * * Method used to get messages from the chat room with chat ref from url.
    * 
+   * ToDO: Add naming solution for creator display in room details.
    */
   getMessages = () => {
     this.chatService.getMessages(this.getUrlParam()).subscribe((res) => {

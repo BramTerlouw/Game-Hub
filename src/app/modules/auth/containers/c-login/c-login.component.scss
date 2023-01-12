@@ -11,5 +11,9 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        .link-new-user {
+            margin: 0;
+        }
     }
 }

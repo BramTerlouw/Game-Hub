@@ -9,7 +9,6 @@ export class ChatroomInfoComponent implements OnInit {
 
   @Input() id?: string;
   @Input() creator?: string;
-  @Input() participants?: number;
 
   public date: string = new Date().toDateString();
   public time: string = new Date().toLocaleTimeString();

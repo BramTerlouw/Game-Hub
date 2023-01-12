@@ -40,9 +40,8 @@ export class CCreateComponent implements OnInit {
       else {
         this.chatService.createRoom(this.myForm.controls['roomcode'].value);
       }
+      this.myForm.reset();
     })
-
-    this.myForm.reset();
   };
 
 

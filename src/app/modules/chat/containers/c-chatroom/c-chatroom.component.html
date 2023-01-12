@@ -13,15 +13,14 @@
     <app-chatroom-info
       class="chatroom-info"
       [id]="roomData?.id"
-      [creator]="roomData?.uid"
-      [participants]="roomData?.count">
+      [creator]="roomData?.uid">
     </app-chatroom-info>
   </div>
 
   <div id="scroll" class="chats-container m-t--l m-b--l">
     <app-chat-message 
       *ngFor="let message of chatMessages" 
-      [chatData]="{username: message.uid, message: message.message, timestamp: message.createdAt}">
+      [chatData]="{username: message.username, message: message.message, timestamp: message.createdAt}">
     </app-chat-message>
   </div>
 

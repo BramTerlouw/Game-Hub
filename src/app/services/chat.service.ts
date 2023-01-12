@@ -32,13 +32,12 @@ export class ChatService implements OnInit {
    * 
    */
   createRoom = (roomRef: string) => {
-    let data: { uid: string, createdAt: number, count: number, messages: any[] };
+    let data: { uid: string, createdAt: number, messages: any[] };
 
     this.auth.getUser().then(async (user) => {
       data = {
         uid: user.uid,
         createdAt: Date.now(),
-        count: 0,
         messages: []
       }
 
@@ -58,11 +57,12 @@ export class ChatService implements OnInit {
    * 
    */
   sendMessage = (chatRef: string, message: string) => {
-    let data: { uid: string, message: string, createdAt: number };
+    let data: { uid: string, username: string, message: string, createdAt: number };
 
     this.auth.getUser().then(async (user) => {
       data = {
         uid: user.uid,
+        username: user.displayName,
         message: message,
         createdAt: Date.now()
       }

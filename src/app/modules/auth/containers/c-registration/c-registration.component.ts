@@ -39,8 +39,9 @@ export class CRegistrationComponent implements OnInit {
         password: this.myForm.controls['password'].value, 
         displayName: this.myForm.controls['username'].value
       }
-    )
+    );
 
+    this.navigateTo('home');
     this.myForm.reset();
   }
 

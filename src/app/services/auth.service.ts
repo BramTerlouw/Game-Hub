@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { 
-  Auth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword } from '@angular/fire/auth';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { 
-  AngularFirestore, 
-  AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument
+} from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { 
-  firstValueFrom, 
-  Observable, 
-  switchMap } from 'rxjs';
+import {
+  firstValueFrom,
+  Observable,
+  switchMap
+} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -29,7 +32,7 @@ export class AuthService {
           if (user) return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
           return [];
         })
-    )
+      )
   }
 
   /**
@@ -52,20 +55,20 @@ export class AuthService {
    * @param value Parameter object containing email and password.
    *  
    */
-  signUp = async (value: any) => {
+  signUp = async (value: { email: string, password: string, displayName: string }) => {
     createUserWithEmailAndPassword(this.auth, value.email, value.password).then((res) => {
       this.updateUserData(
         {
-          uid: res.user.uid, 
-          email: value.email, 
-          password: value.password, 
+          uid: res.user.uid,
+          email: value.email,
+          password: value.password,
           displayName: value.displayName
         });
     })
       .catch((err) => {
         alert(err.message);
       }
-    );
+      );
   };
 
 
@@ -78,7 +81,7 @@ export class AuthService {
    * @returns The userRef that has been added to firebase.
    * 
    */
-  updateUserData = (user_Data: {uid: string; email: string; password: string; displayName: string}) => {
+  updateUserData = (user_Data: { uid: string; email: string; password: string; displayName: string }) => {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user_Data.uid}`);
     return userRef.set(user_Data, { merge: true });
   };
