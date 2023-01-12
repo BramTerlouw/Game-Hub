@@ -6,6 +6,11 @@
     border-radius: 30px;
     background-color: var(--bg-light);
 
+    .panel-controls {
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .input-container {
         width: 250px;
         display: flex;

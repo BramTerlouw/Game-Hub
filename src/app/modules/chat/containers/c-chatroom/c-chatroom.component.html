@@ -1,9 +1,22 @@
 <div class="chat-controls">
-  <app-chatroom-info 
-    [id]="roomData?.id"
-    [creator]="roomData?.uid"
-    [participants]="roomData?.count">
-  </app-chatroom-info>
+  <div class="controls-top">
+
+    <button class="btn-return">
+      <app-icon-template
+        icon="cross" 
+        [size]="20" 
+        fill="#fff"
+        (click)="navigateTo('home')">
+      </app-icon-template>
+    </button>
+
+    <app-chatroom-info
+      class="chatroom-info"
+      [id]="roomData?.id"
+      [creator]="roomData?.uid"
+      [participants]="roomData?.count">
+    </app-chatroom-info>
+  </div>
 
   <div id="scroll" class="chats-container m-t--l m-b--l">
     <app-chat-message 

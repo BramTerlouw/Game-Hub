@@ -3,7 +3,7 @@ import { ChatService } from 'src/app/services/chat.service';
 import { Message } from 'src/app/schematics/message';
 import { Room } from 'src/app/schematics/room';
 import { AuthService } from 'src/app/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-c-chatroom',
@@ -17,7 +17,8 @@ export class CChatroomComponent implements OnInit {
 
   constructor(
     private chatService: ChatService, 
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     this.getMessages();
@@ -87,5 +88,18 @@ export class CChatroomComponent implements OnInit {
     let element = document.getElementById('scroll');
     if (element) element.scrollTop = element.scrollHeight;
   }
+
+
+
+  /**
+   * navigateTo
+   * * Method to navigate to path.
+   * 
+   * @param path Parameter with path to navigate to.
+   * 
+   */
+  navigateTo = (path: string) => {
+    this.router.navigate([path]);
+  };
 
 }

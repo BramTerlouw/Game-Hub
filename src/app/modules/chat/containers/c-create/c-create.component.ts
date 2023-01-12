@@ -31,6 +31,28 @@ export class CCreateComponent implements OnInit {
    * 
    */
   handleCreate = () => {
-    this.chatService.createRoom(this.myForm.controls['roomcode'].value);
+    const roomRef = this.myForm.value['roomcode'];
+
+    this.chatService.getDoc(roomRef).then((docSnapshot) => {
+      if (docSnapshot.exists) {
+       alert('Room already exists');
+      }
+      else {
+        this.chatService.createRoom(this.myForm.controls['roomcode'].value);
+      }
+    })
   };
+
+
+
+    /**
+   * navigateTo
+   * * Method to navigate to a specific path.
+   * 
+   * @param path Parameter which contains the path to navigate to.
+   * 
+   */
+    navigateTo = (path: string) => {
+      this.router.navigate([path]);
+    }
 }

@@ -1,12 +1,13 @@
-<div class="container">
+<div 
+  class="container" 
+  (click)="collapseOptions()">
   <p class="option-name">
     {{option}}
   </p>
   
   <div 
     class="block" 
-    [class.block--rotated]="!optionsCollapsed" 
-    (click)="collapseOptions()">
+    [class.block--rotated]="!optionsCollapsed">
     <app-icon-template 
       icon="arrow-right" 
       [size]="20">

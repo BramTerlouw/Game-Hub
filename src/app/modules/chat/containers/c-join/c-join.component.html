@@ -1,5 +1,13 @@
 <div class="join-panel p--l">
   <div class="input-container">
+    <div class="panel-controls">
+      <app-icon-template 
+        icon="cross" 
+        [size]="20" 
+        fill="#2C2C2C"
+        (click)="navigateTo('home')">
+      </app-icon-template>
+    </div>
 
     <app-menu-input
       inputName="inputRoomcode"
@@ -11,6 +19,6 @@
 
   <app-confirmation-rounded 
     text="Enter"
-    (click)="navigateTo()">
+    (click)="navigateToRoom()">
   </app-confirmation-rounded>
 </div>

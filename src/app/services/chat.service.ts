@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { addDoc, getDocs, Firestore, collection, FieldValue, updateDoc, arrayUnion, doc } from '@angular/fire/firestore';
+import { addDoc, getDocs, Firestore, collection, FieldValue, updateDoc, arrayUnion, doc, query, docSnapshots } from '@angular/fire/firestore';
 import { BehaviorSubject, combineLatest, forkJoin, map, Observable, of, switchMap } from 'rxjs';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -92,5 +92,19 @@ export class ChatService implements OnInit {
           return { id: doc.payload.id, ...doc.payload.data() };
         })
       );
+  };
+
+
+
+  /**
+   * getDoc
+   * * Method to get specific document.
+   * 
+   * @param roomRef Parameter with reference to document.
+   * 
+   */
+  getDoc = (roomRef: string) => {
+    let docRef = this.db.collection('chats').doc(roomRef);
+    return docRef.ref.get();
   };
 }

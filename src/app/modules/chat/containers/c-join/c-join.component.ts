@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { docSnapshots } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-c-join',
@@ -13,7 +15,8 @@ export class CJoinComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private chatService: ChatService) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -27,9 +30,29 @@ export class CJoinComponent implements OnInit {
    * 
    * TODO: Add validation for roomcode.
    */
-  navigateTo = () => {
-    if (this.myForm.value['roomcode'] !== '') {
-      this.router.navigate(['/chat/room/' + this.myForm.value['roomcode']]);
-    }
+  navigateToRoom = () => {
+    const roomRef = this.myForm.value['roomcode'];
+
+    this.chatService.getDoc(roomRef).then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        this.router.navigate(['/chat/room/' + roomRef]);
+      }
+      else {
+        alert('Room does not exist');
+      }
+    })
   };
+
+
+
+  /**
+   * navigateTo
+   * * Method to navigate to a specific path.
+   * 
+   * @param path Parameter which contains the path to navigate to.
+   * 
+   */
+  navigateTo = (path: string) => {
+    this.router.navigate([path]);
+  }
 }

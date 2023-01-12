@@ -5,6 +5,24 @@
     flex-direction: column;
     justify-content: space-between;
 
+    .controls-top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .btn-return {
+            flex-basis: 20%;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            background-color: var(--gray-dark);
+        }
+
+        .chatroom-info {
+            flex-basis: 80%;
+        }
+    }
+
     .chats-container {
         display: flex;
         flex-direction: column;
