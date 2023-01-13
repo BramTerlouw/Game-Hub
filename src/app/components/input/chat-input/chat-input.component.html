@@ -1,8 +1,17 @@
-<form [formGroup]="myForm">
+<div class="input-container" [formGroup]="myForm">
   <input 
     type="text" 
     class="chat-input"
     name="{{inputName}}"
     formControlName="message"
     (keyup.enter)="emitMessage()">
-</form>
+
+    <app-icon-template 
+      icon="send" 
+      fill="none" 
+      [stroke]="myForm.controls['message'].value ? '#fff' : '#2C2C2C'" 
+      [size]="30"
+      class="btn-send"
+      (click)="emitMessage()">
+    </app-icon-template>
+</div>

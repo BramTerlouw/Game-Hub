@@ -8,14 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomePage implements OnInit {
 
-  constructor(
-    private auth: AuthService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  logout = () => {
-    this.auth.signOut();
-  };
 }

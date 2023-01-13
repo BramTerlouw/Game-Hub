@@ -9,6 +9,7 @@ import { ChatroomInfoComponent } from '../components/button/chatroom-info/chatro
 import { MenuInputComponent } from '../components/input/menu-input/menu-input.component';
 import { ChatInputComponent } from '../components/input/chat-input/chat-input.component';
 import { ChatMessageComponent } from '../components/display/chat-message/chat-message.component';
+import { SettingsBarComponent } from '../components/input/settings-bar/settings-bar.component';
 
 
 
@@ -21,6 +22,7 @@ import { ChatMessageComponent } from '../components/display/chat-message/chat-me
     MenuInputComponent,
     ChatInputComponent,
     ChatMessageComponent,
+    SettingsBarComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { ChatMessageComponent } from '../components/display/chat-message/chat-me
     MenuInputComponent,
     ChatInputComponent,
     ChatMessageComponent,
+    SettingsBarComponent,
   ]
 })
 export class GlobalModule { }
