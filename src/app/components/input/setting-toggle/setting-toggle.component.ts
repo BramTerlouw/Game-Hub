@@ -11,7 +11,7 @@ export class SettingToggleComponent implements OnInit {
   @Input() description!: string;
 
   @Input() name!: string;
-  @Input() value!: boolean;
+  @Input() value: boolean = true;
 
   constructor() { }
 

@@ -4,5 +4,8 @@
     <p class="setting-description">{{description}}</p>
   </div>
 
-  <input type="checkbox" name="{{name}}" [attr.checked]="value">
+  <label class="switch">
+    <input class="checkbox" type="checkbox" [attr.checked]="value">
+    <span class="slider"></span>
+  </label>
 </div>
