@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './pages/home/home.page';
+import { HomeSettingsPage } from './pages/home-settings/home-settings.page';
 
 
 @NgModule({
   declarations: [
-    HomePage
+    HomePage,
+    HomeSettingsPage,
   ],
   imports: [
     IonicModule,

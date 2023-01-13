@@ -10,6 +10,9 @@ import { MenuInputComponent } from '../components/input/menu-input/menu-input.co
 import { ChatInputComponent } from '../components/input/chat-input/chat-input.component';
 import { ChatMessageComponent } from '../components/display/chat-message/chat-message.component';
 import { SettingsBarComponent } from '../components/input/settings-bar/settings-bar.component';
+import { TitleComponent } from '../components/display/title/title.component';
+import { SettingToggleComponent } from '../components/input/setting-toggle/setting-toggle.component';
+import { BtnApplyComponent } from '../components/button/btn-apply/btn-apply.component';
 
 
 
@@ -23,6 +26,9 @@ import { SettingsBarComponent } from '../components/input/settings-bar/settings-
     ChatInputComponent,
     ChatMessageComponent,
     SettingsBarComponent,
+    TitleComponent,
+    SettingToggleComponent,
+    BtnApplyComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +44,9 @@ import { SettingsBarComponent } from '../components/input/settings-bar/settings-
     ChatInputComponent,
     ChatMessageComponent,
     SettingsBarComponent,
+    TitleComponent,
+    SettingToggleComponent,
+    BtnApplyComponent,
   ]
 })
 export class GlobalModule { }

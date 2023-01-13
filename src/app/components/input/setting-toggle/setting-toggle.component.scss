@@ -1,0 +1,26 @@
+.setting-container {
+    display: flex;
+    justify-content: space-between;
+
+    border-radius: 10px;
+    background-color: var(--gray-dark);
+
+    .stick-left {
+        display: flex;
+        flex-direction: column;
+
+        .setting-name, .setting-description {
+            margin: 0;
+        }
+
+        .setting-name {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .setting-description {
+            color: var(--gray-normal);
+        }
+    }
+}

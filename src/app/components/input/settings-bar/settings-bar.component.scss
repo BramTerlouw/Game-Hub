@@ -1,5 +1,6 @@
 .settings-container {
     margin: 0 0 10px 0;
+    padding: 2px;
 
     display: flex;
     flex-direction: row;
@@ -8,8 +9,13 @@
     border: 2px solid var(--gray-dark);
     border-radius: 5px;
 
+    .stick-right {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+    }
+
     .btn-setting {
         padding: 11px 10px;
-        margin: 2px 2px;
     }
 }

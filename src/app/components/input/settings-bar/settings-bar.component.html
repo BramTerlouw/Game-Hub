@@ -9,7 +9,8 @@
     </app-icon-template>
   </button>
 
-  <button 
+  <div class="stick-right">
+    <button 
     class="btn-setting">
     <app-icon-template 
       icon="profile" 
@@ -17,4 +18,15 @@
       fill="#fff">
     </app-icon-template>
   </button>
+
+  <button 
+    class="btn-setting">
+    <app-icon-template 
+      icon="settings" 
+      [size]="20" 
+      fill="#fff"
+      (click)="navigateTo('home/settings')">
+    </app-icon-template>
+  </button>
+  </div>
 </div>

@@ -26,6 +26,7 @@ export class MainMenuOptionComponent {
 
   navigateTo = (path: string) => {
     this.router.navigate([path]);
+    this.optionsCollapsed = true;
   };
 
   collapseOptions = () => {
