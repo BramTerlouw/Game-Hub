@@ -17,9 +17,9 @@
     </app-chatroom-info>
   </div>
 
-  <div id="scroll" class="chats-container m-t--l m-b--l">
+  <div *ngIf="chat$ | async as chat" id="scroll" class="chats-container m-t--l m-b--l">
     <app-chat-message 
-      *ngFor="let message of chatMessages" 
+      *ngFor="let message of chat.messages;" 
       [chatData]="{username: message.username, message: message.message, timestamp: message.createdAt}">
     </app-chat-message>
   </div>

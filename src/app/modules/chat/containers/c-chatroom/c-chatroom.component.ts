@@ -4,6 +4,7 @@ import { Message } from 'src/app/schematics/message';
 import { Room } from 'src/app/schematics/room';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-c-chatroom',
@@ -13,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CChatroomComponent implements OnInit {
 
   roomData?: Room;
-  chatMessages?: Message[];
+  chat$!: Observable<any>;
 
   constructor(
     private chatService: ChatService, 
@@ -21,24 +22,11 @@ export class CChatroomComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    this.getMessages();
-  }
-
-
-
-  /**
-   * getMessages
-   * * Method used to get messages from the chat room with chat ref from url.
-   * 
-   * ToDO: Add naming solution for creator display in room details.
-   */
-  getMessages = () => {
-    this.chatService.getMessages(this.getUrlParam()).subscribe((res) => {
-      this.chatMessages = res.messages;
-      this.roomData = {...res };
+    this.chat$ = this.chatService.getMessages(this.getUrlParam());
+    this.chat$.subscribe(() => {
       setTimeout(() => this.displayBottomDiv());
-    })
-  };
+    });
+  }
 
 
 
