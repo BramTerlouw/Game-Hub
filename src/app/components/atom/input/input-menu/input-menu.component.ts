@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-menu-input',
-  templateUrl: './menu-input.component.html',
-  styleUrls: ['./menu-input.component.scss'],
+  selector: 'app-input-menu',
+  templateUrl: './input-menu.component.html',
+  styleUrls: ['./input-menu.component.scss'],
 })
-export class MenuInputComponent implements OnInit {
+export class InputMenuComponent implements OnInit {
 
   @Input() type: string = 'text';
   @Input() inputName!: string;

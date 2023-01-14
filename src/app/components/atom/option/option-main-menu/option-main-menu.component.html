@@ -18,15 +18,15 @@
 <div 
   *ngIf="!optionsCollapsed" 
   class="collapsed-options">
-  <app-confirmation-rounded 
+  <app-btn-panel 
     [flat]="true" 
     text="{{collapsed_option1}}"
     (click)="navigateTo(path1)">
-  </app-confirmation-rounded>
+  </app-btn-panel>
   
-  <app-confirmation-rounded 
+  <app-btn-panel 
     [flat]="true" 
     text="{{collapsed_option2}}"
     (click)="navigateTo(path2)">
-  </app-confirmation-rounded>
+  </app-btn-panel>
 </div>

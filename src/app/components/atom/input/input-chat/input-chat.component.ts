@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-chat-input',
-  templateUrl: './chat-input.component.html',
-  styleUrls: ['./chat-input.component.scss'],
+  selector: 'app-input-chat',
+  templateUrl: './input-chat.component.html',
+  styleUrls: ['./input-chat.component.scss'],
 })
-export class ChatInputComponent implements OnInit {
+export class InputChatComponent implements OnInit {
 
   @Input() inputName!: string;
   @Output() messageEmitter = new EventEmitter();

@@ -1,0 +1,17 @@
+<div class="settings-container">
+  <app-btn-setting 
+    icon="logout"
+    (click)="logout()">
+  </app-btn-setting>
+
+  <div class="stick-right">
+    <app-btn-setting 
+      icon="profile">
+    </app-btn-setting>
+
+    <app-btn-setting 
+      icon="settings"
+      (click)="navigateTo('home/settings')">
+    </app-btn-setting>
+  </div>
+</div>

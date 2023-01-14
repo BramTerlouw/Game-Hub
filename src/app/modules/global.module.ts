@@ -2,33 +2,46 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MainMenuOptionComponent } from '../components/option/main-menu-option/main-menu-option.component';
-import { ConfirmationRoundedComponent } from '../components/button/confirmation-rounded/confirmation-rounded.component';
-import { IconTemplateComponent } from '../components/asset/icon-template/icon-template.component';
-import { ChatroomInfoComponent } from '../components/button/chatroom-info/chatroom-info.component';
-import { MenuInputComponent } from '../components/input/menu-input/menu-input.component';
-import { ChatInputComponent } from '../components/input/chat-input/chat-input.component';
-import { ChatMessageComponent } from '../components/display/chat-message/chat-message.component';
-import { SettingsBarComponent } from '../components/input/settings-bar/settings-bar.component';
-import { TitleComponent } from '../components/display/title/title.component';
-import { SettingToggleComponent } from '../components/input/setting-toggle/setting-toggle.component';
-import { BtnApplyComponent } from '../components/button/btn-apply/btn-apply.component';
+// ** Atom btns
+import { BtnPanelComponent } from '../components/atom/button/btn-panel/btn-panel.component';
+import { BtnApplyComponent } from '../components/atom/button/btn-apply/btn-apply.component';
+import { BtnSettingComponent } from '../components/atom/button/btn-setting/btn-setting.component';
+
+// ** Atom displays
+import { ChatMessageComponent } from '../components/atom/display/chat-message/chat-message.component';
+import { ChatroomInfoComponent } from '../components/atom/display/chatroom-info/chatroom-info.component';
+import { IconTemplateComponent } from '../components/atom/display/icon-template/icon-template.component';
+import { TitleComponent } from '../components/atom/display/title/title.component';
+
+// ** Atom inputs
+import { InputChatComponent } from '../components/atom/input/input-chat/input-chat.component';
+import { InputMenuComponent } from '../components/atom/input/input-menu/input-menu.component';
+import { InputToggleComponent } from '../components/atom/input/input-toggle/input-toggle.component';
+
+// ** Atom options
+import { OptionMainMenuComponent } from '../components/atom/option/option-main-menu/option-main-menu.component';
+
+// ** Molecules
+import { SettingsBarComponent } from '../components/molecule/settings-bar/settings-bar.component';
+import { SettingToggleComponent } from '../components/molecule/setting-toggle/setting-toggle.component';
 
 
 
 @NgModule({
   declarations: [
-    MainMenuOptionComponent,
-    ConfirmationRoundedComponent,
-    IconTemplateComponent,
-    ChatroomInfoComponent,
-    MenuInputComponent,
-    ChatInputComponent,
-    ChatMessageComponent,
-    SettingsBarComponent,
-    TitleComponent,
-    SettingToggleComponent,
+    BtnPanelComponent,
     BtnApplyComponent,
+    BtnSettingComponent,
+    ChatMessageComponent,
+    ChatroomInfoComponent,
+    IconTemplateComponent,
+    TitleComponent,
+    InputChatComponent,
+    InputMenuComponent,
+    InputToggleComponent,
+    OptionMainMenuComponent,
+    SettingsBarComponent,
+    SettingToggleComponent,
   ],
   imports: [
     CommonModule,
@@ -36,17 +49,19 @@ import { BtnApplyComponent } from '../components/button/btn-apply/btn-apply.comp
     ReactiveFormsModule
   ],
   exports: [
-    MainMenuOptionComponent,
-    ConfirmationRoundedComponent,
-    IconTemplateComponent,
-    ChatroomInfoComponent,
-    MenuInputComponent,
-    ChatInputComponent,
-    ChatMessageComponent,
-    SettingsBarComponent,
-    TitleComponent,
-    SettingToggleComponent,
+    BtnPanelComponent,
     BtnApplyComponent,
+    BtnSettingComponent,
+    ChatMessageComponent,
+    ChatroomInfoComponent,
+    IconTemplateComponent,
+    TitleComponent,
+    InputChatComponent,
+    InputMenuComponent,
+    InputToggleComponent,
+    OptionMainMenuComponent,
+    SettingsBarComponent,
+    SettingToggleComponent,
   ]
 })
 export class GlobalModule { }

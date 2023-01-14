@@ -4,8 +4,7 @@
     <p class="setting-description">{{description}}</p>
   </div>
 
-  <label class="switch">
-    <input class="checkbox" type="checkbox" [attr.checked]="value">
-    <span class="slider"></span>
-  </label>
+  <app-input-toggle 
+    [value]="value">
+  </app-input-toggle>
 </div>

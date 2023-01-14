@@ -1,29 +1,29 @@
 <div class="login-panel p--l">
   <div class="input-container">
-    <app-menu-input
+    <app-input-menu
       inputName="inputEmail"
       placeholder="Emailaddress"
       control="email"
       [form]="myForm"
       errorMessage="Enter a valid emailaddress!">
-    </app-menu-input>
+    </app-input-menu>
 
-    <app-menu-input
+    <app-input-menu
       type="password"
       inputName="inputPassword"
       placeholder="Password"
       control="password"
       [form]="myForm"
       errorMessage="Enter a valid password!">
-    </app-menu-input>
+    </app-input-menu>
 
     <p class="link-new-user">
       <a routerLink="/auth/registration">Create account</a>
     </p>
   </div>
 
-  <app-confirmation-rounded
+  <app-btn-panel
     text="Enter"
     (click)="handleLogin()">
-  </app-confirmation-rounded>
+  </app-btn-panel>
 </div>

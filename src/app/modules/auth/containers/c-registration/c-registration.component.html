@@ -1,33 +1,33 @@
 <div class="login-panel p--l">
   <div class="input-container">
-    <app-menu-input
+    <app-input-menu
       inputName="inputEmail"
       placeholder="Emailaddress"
       control="email"
       [form]="myForm"
       errorMessage="Enter a valid emailaddress!">
-    </app-menu-input>
+    </app-input-menu>
 
-    <app-menu-input
+    <app-input-menu
       inputName="inputUsername"
       placeholder="Username"
       control="username"
       [form]="myForm"
       errorMessage="Username cannot be empty!">
-    </app-menu-input>
+    </app-input-menu>
 
-    <app-menu-input
+    <app-input-menu
       type="password"
       inputName="inputPassword"
       placeholder="Password"
       control="password"
       [form]="myForm"
       errorMessage="Enter a valid password!">
-    </app-menu-input>
+    </app-input-menu>
   </div>
 
-  <app-confirmation-rounded
+  <app-btn-panel
     text="Enter"
     (click)="HandleRegistration()">
-  </app-confirmation-rounded>
+  </app-btn-panel>
 </div>

@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-main-menu-option',
-  templateUrl: './main-menu-option.component.html',
-  styleUrls: ['./main-menu-option.component.scss'],
+  selector: 'app-option-main-menu',
+  templateUrl: './option-main-menu.component.html',
+  styleUrls: ['./option-main-menu.component.scss'],
 })
-export class MainMenuOptionComponent {
+export class OptionMainMenuComponent {
 
   @Input() theme: string = 'default';
 

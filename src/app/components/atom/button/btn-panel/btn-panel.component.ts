@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-confirmation-rounded',
-  templateUrl: './confirmation-rounded.component.html',
-  styleUrls: ['./confirmation-rounded.component.scss'],
+  selector: 'app-btn-panel',
+  templateUrl: './btn-panel.component.html',
+  styleUrls: ['./btn-panel.component.scss'],
 })
-export class ConfirmationRoundedComponent implements OnInit {
+export class BtnPanelComponent implements OnInit {
 
   @Input() text: string = 'default';
   @Input() theme: 'light' | 'dark' = 'light';

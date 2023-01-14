@@ -9,17 +9,17 @@
       </app-icon-template>
     </div>
 
-    <app-menu-input
+    <app-input-menu
       inputName="inputRoomcode"
       placeholder="Roomcode"
       control="roomcode"
       [form]="myForm"
       errorMessage="Enter a valid room code!">
-    </app-menu-input>
+    </app-input-menu>
   </div>
 
-  <app-confirmation-rounded 
+  <app-btn-panel 
     text="Enter"
     (click)="handleCreate()">
-  </app-confirmation-rounded>
+  </app-btn-panel>
 </div>
