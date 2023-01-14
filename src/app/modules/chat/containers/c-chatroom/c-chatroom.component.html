@@ -1,4 +1,4 @@
-<div class="chat-controls">
+<div *ngIf="chat$ | async as chat" class="chat-controls">
   <div class="controls-top">
 
     <button class="btn-return">
@@ -12,14 +12,14 @@
 
     <app-chatroom-info
       class="chatroom-info"
-      [id]="roomData?.id"
-      [creator]="roomData?.uid">
+      [id]="chat.id"
+      [creator]="chat.uid">
     </app-chatroom-info>
   </div>
 
-  <div *ngIf="chat$ | async as chat" id="scroll" class="chats-container m-t--l m-b--l">
+  <div id="scroll" class="chats-container m-t--l m-b--l">
     <app-chat-message 
-      *ngFor="let message of chat.messages;" 
+      *ngFor="let message of chat.messages; trackBy: trackByCreated" 
       [chatData]="{username: message.username, message: message.message, timestamp: message.createdAt}">
     </app-chat-message>
   </div>

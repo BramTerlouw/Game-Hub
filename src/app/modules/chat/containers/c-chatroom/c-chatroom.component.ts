@@ -44,6 +44,19 @@ export class CChatroomComponent implements OnInit {
 
 
   /**
+   * trackByCreated
+   * * Method to track by created.
+   * 
+   * @param index Parameter with index of message.
+   * @param message Parameter with message.
+   * 
+   * @returns The value of message.createdAt. 
+   */
+  trackByCreated = (index: number, message: Message) => message.createdAt;
+
+
+
+  /**
    * sendMessage
    * * Method to send message to firebase.
    * 
