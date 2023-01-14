@@ -24,6 +24,7 @@ import { OptionMainMenuComponent } from '../components/atom/option/option-main-m
 // ** Molecules
 import { SettingsBarComponent } from '../components/molecule/settings-bar/settings-bar.component';
 import { SettingToggleComponent } from '../components/molecule/setting-toggle/setting-toggle.component';
+import { OptionsMainMenuComponent } from '../components/molecule/options-main-menu/options-main-menu.component';
 
 
 
@@ -42,6 +43,7 @@ import { SettingToggleComponent } from '../components/molecule/setting-toggle/se
     OptionMainMenuComponent,
     SettingsBarComponent,
     SettingToggleComponent,
+    OptionsMainMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -62,6 +64,7 @@ import { SettingToggleComponent } from '../components/molecule/setting-toggle/se
     OptionMainMenuComponent,
     SettingsBarComponent,
     SettingToggleComponent,
+    OptionsMainMenuComponent,
   ]
 })
 export class GlobalModule { }

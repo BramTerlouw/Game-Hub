@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class OptionMainMenuComponent {
 
+  @Input() index!: number;
   @Input() theme: string = 'default';
+  @Input() disabled: boolean = false;
 
   @Input() option: string = 'default';
   @Input() collapsed_option1: string = 'default';
@@ -17,7 +19,7 @@ export class OptionMainMenuComponent {
   @Input() path1: string = '';
   @Input() path2: string = '';
 
-
+  @Output() emitCollapse = new EventEmitter<number>();
   optionsCollapsed: boolean = true;
 
   constructor(
@@ -31,5 +33,6 @@ export class OptionMainMenuComponent {
 
   collapseOptions = () => {
     this.optionsCollapsed = !this.optionsCollapsed;
+    this.emitCollapse.emit(this.index);
   };
 }

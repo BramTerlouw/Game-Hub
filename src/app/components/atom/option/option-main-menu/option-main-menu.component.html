@@ -1,5 +1,6 @@
 <div 
-  class="container" 
+  class="container"
+  [class.container--disabled]="disabled" 
   (click)="collapseOptions()">
   <p class="option-name">
     {{option}}
