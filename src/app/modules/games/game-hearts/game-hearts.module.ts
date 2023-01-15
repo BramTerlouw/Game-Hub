@@ -9,12 +9,15 @@ import { CreateHeartsPage } from './pages/create-hearts/create-hearts.page';
 import { JoinHeartsPage } from './pages/join-hearts/join-hearts.page';
 import { PlayingFieldHeartsPage } from './pages/playing-field-hearts/playing-field-hearts.page';
 
+import { CPlayingFieldHeartsComponent } from './containers/c-playing-field-hearts/c-playing-field-hearts.component';
+
 
 @NgModule({
   declarations: [
     CreateHeartsPage,
     JoinHeartsPage,
     PlayingFieldHeartsPage,
+    CPlayingFieldHeartsComponent,
   ],
   imports: [
     IonicModule,
