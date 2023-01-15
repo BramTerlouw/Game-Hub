@@ -12,6 +12,13 @@ export class HeartsService {
 
   constructor(private cardService: CardService) { }
 
+
+
+  /**
+   * initGame
+   * * Method to initialize a new game of hearts.
+   * 
+   */
   initGame = () => {
     this.deck = this.cardService.createDeck();
     this.deck = this.cardService.shuffleDeck(this.deck);
@@ -20,6 +27,13 @@ export class HeartsService {
     // TODO: Create a new game in firebase with deck and hand data.
   };
 
+
+
+  /**
+   * joinGame
+   * * Method to join an existing game of hearts.
+   * 
+   */
   joinGame = () => {
     // TODO: Get game data from firebase and join a game.
   };
