@@ -10,6 +10,8 @@ export class HeartsService {
   deck!: Card[];
   hands!: Array<Card[]>;
 
+  currentRound!: Array<{uid: string; card: Card}>
+
   constructor(private cardService: CardService) { }
 
 
@@ -93,5 +95,27 @@ export class HeartsService {
    */
   dbUpdateScore = () => {
     // TODO: Update the score in firebase.
+  };
+
+
+
+  /**
+   * dbUpdateAllPoints
+   * * Method to subtract x amount of points from all losing players when a player has all points of round.
+   * 
+   */
+  dbUpdateAllPoints = () => {
+    // TODO: Subtract x amount of points from all losing players when a player has all points of round.
+  };
+
+
+
+  /**
+   * dbUpdateAllCards
+   * * Method to subtract x amount of cards from all losing players when a player has all cards of round.
+   * 
+   */
+  dbUpdateAllCards = () => {
+    // TODO: Subtract x amount of cards from all losing players when a player has all cards of round.
   };
 }
