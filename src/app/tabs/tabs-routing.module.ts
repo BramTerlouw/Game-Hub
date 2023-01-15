@@ -8,6 +8,10 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'auth',
+        loadChildren: () => import('../modules/auth/auth.module').then(m => m.AuthModule)
+      },
+      {
         path: 'home',
         loadChildren: () => import('../modules/home/home.module').then(m => m.HomeModule)
       },
@@ -16,8 +20,12 @@ const routes: Routes = [
         loadChildren: () => import('../modules/chat/chat.module').then(m => m.ChatModule)
       },
       {
-        path: 'auth',
-        loadChildren: () => import('../modules/auth/auth.module').then(m => m.AuthModule)
+        path: 'hearts',
+        loadChildren: () => import('../modules/games/game-hearts/game-hearts.module').then(m => m.GameHeartsModule)
+      },
+      {
+        path: 'shithead',
+        loadChildren: () => import('../modules/games/game-shithead/game-shithead.module').then(m => m.GameShitheadModule)
       },
       {
         path: '',

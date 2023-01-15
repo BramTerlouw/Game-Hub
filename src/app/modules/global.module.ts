@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BtnPanelComponent } from '../components/atom/button/btn-panel/btn-panel.component';
 import { BtnApplyComponent } from '../components/atom/button/btn-apply/btn-apply.component';
 import { BtnSettingComponent } from '../components/atom/button/btn-setting/btn-setting.component';
+import { BtnGameSettingComponent } from '../components/atom/button/btn-game-setting/btn-game-setting.component';
 
 // ** Atom displays
 import { ChatMessageComponent } from '../components/atom/display/chat-message/chat-message.component';
@@ -25,6 +26,7 @@ import { OptionMainMenuComponent } from '../components/atom/option/option-main-m
 import { SettingsBarComponent } from '../components/molecule/settings-bar/settings-bar.component';
 import { SettingToggleComponent } from '../components/molecule/setting-toggle/setting-toggle.component';
 import { OptionsMainMenuComponent } from '../components/molecule/options-main-menu/options-main-menu.component';
+import { GameSettingsCollapsableComponent } from '../components/molecule/game-settings-collapsable/game-settings-collapsable.component';
 
 
 
@@ -33,6 +35,7 @@ import { OptionsMainMenuComponent } from '../components/molecule/options-main-me
     BtnPanelComponent,
     BtnApplyComponent,
     BtnSettingComponent,
+    BtnGameSettingComponent,
     ChatMessageComponent,
     ChatroomInfoComponent,
     IconTemplateComponent,
@@ -44,6 +47,7 @@ import { OptionsMainMenuComponent } from '../components/molecule/options-main-me
     SettingsBarComponent,
     SettingToggleComponent,
     OptionsMainMenuComponent,
+    GameSettingsCollapsableComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +58,7 @@ import { OptionsMainMenuComponent } from '../components/molecule/options-main-me
     BtnPanelComponent,
     BtnApplyComponent,
     BtnSettingComponent,
+    BtnGameSettingComponent,
     ChatMessageComponent,
     ChatroomInfoComponent,
     IconTemplateComponent,
@@ -65,6 +70,7 @@ import { OptionsMainMenuComponent } from '../components/molecule/options-main-me
     SettingsBarComponent,
     SettingToggleComponent,
     OptionsMainMenuComponent,
+    GameSettingsCollapsableComponent,
   ]
 })
 export class GlobalModule { }

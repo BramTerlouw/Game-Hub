@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { docSnapshots } from '@angular/fire/firestore';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
-  selector: 'app-c-create',
-  templateUrl: './c-create.component.html',
-  styleUrls: ['./c-create.component.scss'],
+  selector: 'app-c-join-chat',
+  templateUrl: './c-join-chat.component.html',
+  styleUrls: ['./c-join-chat.component.scss'],
 })
-export class CCreateComponent implements OnInit {
+export class CJoinChatComponent implements OnInit {
 
   myForm!: FormGroup;
 
@@ -23,37 +24,37 @@ export class CCreateComponent implements OnInit {
     });
   }
 
-
-
   /**
-   * handleCreate
-   * * Method to create a new room
+   * navigateTo
+   * * Method to navigate to chatroom with roomcode from form.
    * 
+   * TODO: Add validation for roomcode.
    */
-  handleCreate = () => {
+  navigateToRoom = () => {
     const roomRef = this.myForm.value['roomcode'];
 
     this.chatService.getDoc(roomRef).then((docSnapshot) => {
       if (docSnapshot.exists) {
-       alert('Room already exists');
+        this.router.navigate(['/chat/room/' + roomRef]);
       }
       else {
-        this.chatService.createRoom(this.myForm.controls['roomcode'].value);
+        alert('Room does not exist');
       }
-      this.myForm.reset();
     })
+
+    this.myForm.reset();
   };
 
 
 
-    /**
+  /**
    * navigateTo
    * * Method to navigate to a specific path.
    * 
    * @param path Parameter which contains the path to navigate to.
    * 
    */
-    navigateTo = (path: string) => {
-      this.router.navigate([path]);
-    }
+  navigateTo = (path: string) => {
+    this.router.navigate([path]);
+  }
 }

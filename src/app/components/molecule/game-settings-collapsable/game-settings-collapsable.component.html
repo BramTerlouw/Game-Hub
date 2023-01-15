@@ -1,0 +1,39 @@
+<div class="game-settings-collapsable">
+  <div 
+    class="collapsed-settings-container" 
+    [class.collapsed-settings-container--visible]="!isCollapsed">
+    <app-btn-game-setting 
+      icon="settings" 
+      [width]="30" 
+      [height]="30">
+    </app-btn-game-setting>
+
+    <app-btn-game-setting 
+      icon="settings" 
+      [width]="30" 
+      [height]="30">
+    </app-btn-game-setting>
+    
+    <app-btn-game-setting 
+      icon="settings" 
+      [width]="30" 
+      [height]="30">
+    </app-btn-game-setting>
+  </div>
+
+  <app-btn-game-setting 
+    *ngIf="isCollapsed" 
+    icon="settings" 
+    [width]="30" 
+    [height]="30" 
+    (click)="toggleCollapse()">
+  </app-btn-game-setting>
+  
+  <app-btn-game-setting 
+    *ngIf="!isCollapsed" 
+    icon="minus" 
+    [width]="30" 
+    [height]="6" 
+    (click)="toggleCollapse()">
+  </app-btn-game-setting>
+</div>

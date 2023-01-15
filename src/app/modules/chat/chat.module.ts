@@ -11,8 +11,8 @@ import { CreateChatPage } from './pages/create-chat/create-chat.page';
 import { JoinChatPage } from './pages/join-chat/join-chat.page';
 
 import { CChatroomComponent } from './containers/c-chatroom/c-chatroom.component';
-import { CCreateComponent } from './containers/c-create/c-create.component';
-import { CJoinComponent } from './containers/c-join/c-join.component';
+import { CCreateChatComponent } from './containers/c-create-chat/c-create-chat.component';
+import { CJoinChatComponent } from './containers/c-join-chat/c-join-chat.component';
 
 
 
@@ -22,8 +22,8 @@ import { CJoinComponent } from './containers/c-join/c-join.component';
     CreateChatPage,
     JoinChatPage,
     CChatroomComponent,
-    CCreateComponent,
-    CJoinComponent
+    CCreateChatComponent,
+    CJoinChatComponent
   ],
   imports: [
     IonicModule,
