@@ -6,7 +6,7 @@ import { PlayingFieldHeartsPage } from './pages/playing-field-hearts/playing-fie
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'game/:id',
      component: PlayingFieldHeartsPage
   },
   {

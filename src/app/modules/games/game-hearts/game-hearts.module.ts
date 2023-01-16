@@ -9,6 +9,8 @@ import { CreateHeartsPage } from './pages/create-hearts/create-hearts.page';
 import { JoinHeartsPage } from './pages/join-hearts/join-hearts.page';
 import { PlayingFieldHeartsPage } from './pages/playing-field-hearts/playing-field-hearts.page';
 
+import { CCreateHeartsComponent } from './containers/c-create-hearts/c-create-hearts.component';
+import { CJoinHeartsComponent } from './containers/c-join-hearts/c-join-hearts.component';
 import { CPlayingFieldHeartsComponent } from './containers/c-playing-field-hearts/c-playing-field-hearts.component';
 
 
@@ -17,6 +19,8 @@ import { CPlayingFieldHeartsComponent } from './containers/c-playing-field-heart
     CreateHeartsPage,
     JoinHeartsPage,
     PlayingFieldHeartsPage,
+    CCreateHeartsComponent,
+    CJoinHeartsComponent,
     CPlayingFieldHeartsComponent,
   ],
   imports: [

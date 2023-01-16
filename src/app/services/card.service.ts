@@ -70,7 +70,7 @@ export class CardService {
    * 
   */
   dealCountHands = (deck: Card[], count: number) => {
-    let hands: Array<Card[]> = [];
+    let hands: Array<{uid: string, hand: Card[]}> = [];
 
     this.pushCountHands(count, hands);
     this.dealCardsToHands(deck, hands, count);
@@ -86,9 +86,9 @@ export class CardService {
    * @param hands Parameter with empty hands array.
    * 
    */
-  private pushCountHands = (count: number, hands: Array<Card[]>) => {
+  private pushCountHands = (count: number, hands: Array<{uid: string; hand: Card[]}>) => {
     for (let i = 0; i < (count); i++) {
-      hands.push([]);
+      hands.push({uid: '', hand: []});
     }
   }
 
@@ -101,9 +101,10 @@ export class CardService {
    * @param count Parameter with number of hands to deal to.
    * 
    */
-  private dealCardsToHands = (deck: Card[], hands: Array<Card[]>, count: number) => {
+  private dealCardsToHands = (deck: Card[], hands: Array<{uid: string; hand: Card[]}>, count: number) => {
     for (let i = 0; i < deck.length; i++) {
-      hands[i % count].push(deck[i]);
+      hands[i % count].uid = '';
+      hands[i % count].hand.push(deck[i]);
     }
   };
   //----------------------------------------------------------------------//

@@ -6,7 +6,7 @@
     collapsed_option2="Join" 
     path1="chat/create"
     path2="chat/join"
-    [disabled]="optionCollapsed && optionSelected != 0"
+    [disabled]="optionCollapsed && optionSelected !== 0"
     (emitCollapse)="disableOptions($event)">
   </app-option-main-menu>
 
@@ -15,9 +15,9 @@
     option="Hartenjagen" 
     collapsed_option1="New" 
     collapsed_option2="Join" 
-    path1="home" 
-    path2="home"
-    [disabled]="optionCollapsed && optionSelected != 1"
+    path1="hearts/create" 
+    path2="hearts/join"
+    [disabled]="optionCollapsed && optionSelected !== 1"
     (emitCollapse)="disableOptions($event)">
   </app-option-main-menu>
 </div>
