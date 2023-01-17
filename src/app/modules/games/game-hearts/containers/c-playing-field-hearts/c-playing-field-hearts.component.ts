@@ -19,11 +19,11 @@ export class CPlayingFieldHeartsComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.heartsService.getGame(this.getUrlParam()).subscribe((game) => {
-      this.authService.getUser().then((user) => {
-        this.myHand = game.hands.find((hand: {uid: string; hand: Card[]}) => hand.uid === user.uid)?.hand || [];
-      });
-    });
+    // this.heartsService.getGame(this.getUrlParam()).subscribe((game) => {
+    //   this.authService.getUser().then((user) => {
+    //     this.myHand = game.hands.find((hand: {uid: string; hand: Card[]}) => hand.uid === user.uid)?.hand || [];
+    //   });
+    // });
   }
 
 

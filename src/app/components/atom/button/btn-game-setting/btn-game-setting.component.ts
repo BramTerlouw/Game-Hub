@@ -12,6 +12,7 @@ export class BtnGameSettingComponent implements OnInit {
   @Input() icon!: string;
   @Input() width!: number;
   @Input() height!: number;
+  @Input() verticalAlign?: boolean = false;
 
   constructor(private router: Router) { }
 

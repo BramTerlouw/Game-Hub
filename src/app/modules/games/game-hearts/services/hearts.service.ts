@@ -116,6 +116,33 @@ export class HeartsService {
 
 
   /**
+   * exitGame
+   * * Method to exit an existing game of hearts.
+   * 
+   * @param gameRef Parameter for game id.
+   * 
+   */
+  exitGame = (gameRef: string) => {
+    // TODO: Remove player uid from participants array.
+    // TODO: Remove player hand from hands array.
+  };
+
+
+
+  /**
+   * endGame
+   * * Method to end an existing game of hearts.
+   * 
+   * @param gameRef Parameter for game id.
+   * 
+   */
+  endGame = (gameRef: string) => {
+    // TODO: Remove game from firebase.
+  };
+
+
+
+  /**
    * claimHand
    * * Method to claim a hand of hearts.
    * 
@@ -161,10 +188,45 @@ export class HeartsService {
    * startGame
    * * Method to start the game of hearts.
    *
+   * @param gameData Parameter with game data that has to be updated before starting.
+   * 
+   * TODO: Only start with 4 players.
+   * 
    */
-  startGame = () => {
-    // TODO: Set order of turns.
-    // TODO: Start a game of hearts when all players have joined.
+  startGame = (gameData: Game_Hearts) => {
+    gameData.playerOrder = this.setRandomOrder(gameData.participants);
+    gameData.currentPlayer = gameData.playerOrder[0].uid;
+
+    // TODO: Start game in firebase.
+
+    this.updateGame(gameData);
+  };
+
+
+
+  /**
+   * setRandomOrder
+   * * Method to set a random order of players.
+   * 
+   * @param players Parameters containing uids of players.
+   * @returns New array with random order of players.
+   * 
+   * TODO: Can be simpler by removing index and use array index.
+   */
+  setRandomOrder = (players: Array<string>) => {
+    let randomList = []
+    
+    while (players.length > 0) {
+      let random = Math.floor(Math.random() * players.length);
+      randomList.push(
+        {
+          index: players.length, 
+          uid: players[random]
+        }
+      );
+      players.splice(random, 1);
+    }
+    return randomList;
   };
 
 
@@ -174,7 +236,7 @@ export class HeartsService {
    * * Method to submit a card to the game.
    *
    */
-  submitCard = () => {
+  submitCard = (card: Card) => {
     // TODO: Submit a card to the game.
   };
 
@@ -183,9 +245,11 @@ export class HeartsService {
   /**
    * getRoundData
    * * Method to get the round data from firebase.
+   * 
+   * @param gameRef Parameter for game id.
    *
    */
-  getRoundData = () => {
+  getRoundData = (gameRef: string) => {
     // TODO: Get the round data from firebase.
     // TODO: Calcolate player with highest card.
     // TODO: Calculate points of round
@@ -196,9 +260,12 @@ export class HeartsService {
   /**
    * dbUpdateScore
    * * Method to update the score in firebase.
+   * 
+   * @param uid Parameter for user id.
+   * @param score Parameter for score of round.
    *
    */
-  dbUpdateScore = () => {
+  dbUpdateScore = (uid: string, score: number) => {
     // TODO: Update the score in firebase.
   };
 
@@ -206,10 +273,13 @@ export class HeartsService {
 
   /**
    * dbUpdateAllPoints
-   * * Method to subtract x amount of points from all losing players when a player has all points of round.
+   * * Method to subtract x amount of points from all 
+   * * losing players when a player has all points of round.
+   * 
+   * @param action Parameter for action to perform.
    *
    */
-  dbUpdateAllPoints = () => {
+  dbUpdateAllPoints = (action: 'raiseAll' | 'lowerSelf') => {
     // TODO: Subtract x amount of points from all losing players when a player has all points of round.
   };
 
@@ -217,10 +287,13 @@ export class HeartsService {
 
   /**
    * dbUpdateAllCards
-   * * Method to subtract x amount of cards from all losing players when a player has all cards of round.
+   * * Method to subtract x amount of cards from all 
+   * * losing players when a player has all cards of round.
+   * 
+   * @param action Parameter for action to perform.
    *
    */
-  dbUpdateAllCards = () => {
+  dbUpdateAllCards = (action: 'raiseAll' | 'lowerSelf') => {
     // TODO: Subtract x amount of cards from all losing players when a player has all cards of round.
   };
 

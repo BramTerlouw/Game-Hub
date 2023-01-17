@@ -3,21 +3,24 @@
     class="collapsed-settings-container" 
     [class.collapsed-settings-container--visible]="!isCollapsed">
     <app-btn-game-setting 
-      icon="settings" 
+      icon="exit-game"
       [width]="30" 
-      [height]="30">
+      [height]="30"
+      [verticalAlign]="true">
     </app-btn-game-setting>
 
     <app-btn-game-setting 
       icon="settings" 
       [width]="30" 
-      [height]="30">
+      [height]="30"
+      [verticalAlign]="true">
     </app-btn-game-setting>
     
     <app-btn-game-setting 
       icon="settings" 
       [width]="30" 
-      [height]="30">
+      [height]="30"
+      [verticalAlign]="true">
     </app-btn-game-setting>
   </div>
 
@@ -26,6 +29,7 @@
     icon="settings" 
     [width]="30" 
     [height]="30" 
+    [verticalAlign]="true"
     (click)="toggleCollapse()">
   </app-btn-game-setting>
   

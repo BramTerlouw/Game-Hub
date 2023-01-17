@@ -2,10 +2,20 @@
     width: 60px;
     height: 60px;
 
-    display: grid;
-    place-items: center;
+    position: relative;
 
-    border-radius: 50%;
     cursor: pointer;
+    border-radius: 50%;
     background-color: gray;
+
+    app-icon-template {
+        position: absolute;
+        top: (50%);
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .vertical-align {
+        top: (calc(50% + 2px));
+    }
 }
