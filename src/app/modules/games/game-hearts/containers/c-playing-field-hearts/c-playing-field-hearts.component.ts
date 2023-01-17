@@ -10,20 +10,30 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./c-playing-field-hearts.component.scss'],
 })
 export class CPlayingFieldHeartsComponent implements OnInit {
-
+  
+  uid!: string;
   myHand!: Card[];
 
+  currentPlayer?: string;
+  
   constructor(
     private route: ActivatedRoute,
     private heartsService: HeartsService,
     private authService: AuthService) { }
 
   ngOnInit() {
-    // this.heartsService.getGame(this.getUrlParam()).subscribe((game) => {
-    //   this.authService.getUser().then((user) => {
-    //     this.myHand = game.hands.find((hand: {uid: string; hand: Card[]}) => hand.uid === user.uid)?.hand || [];
-    //   });
-    // });
+    this.authService.getUser()
+      .then((user) => this.uid = user.uid)
+      .then(() => this.heartsService.getHand(this.getUrlParam(), this.uid)
+      .then((hand) => {this.myHand = hand}));
+
+    this.heartsService.getGame(this.getUrlParam()).subscribe((game) => {
+      this.currentPlayer = game.currentPlayer; /** -->> Get and set the current player */
+      // ... /** -->> Get .... */
+      // ... /** -->> Get .... */
+      // ... /** -->> Get .... */
+      // ... /** -->> Get .... */
+    });
   }
 
 

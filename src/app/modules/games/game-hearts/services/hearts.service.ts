@@ -103,14 +103,17 @@ export class HeartsService {
    * * Method to join an existing game of hearts.
    * - Gets data from getMessage listener.
    * - Pass data to claimHand method to edit data.
+   * - With 4 participants, start game.
    * 
    * @param gameRef Parameter for game id.
    *
    */
   joinGame = (gameRef: string) => {
-    getDoc(doc(getFirestore(), 'hearts', gameRef)).then((doc) => {
-      this.claimHand(doc.data() as Game_Hearts);
-    });
+    getDoc(doc(getFirestore(), 'hearts', gameRef))
+      .then((doc) => {
+        let data = doc.data() as Game_Hearts;
+        this.claimHand(data);
+      });
   };
 
 
@@ -154,7 +157,6 @@ export class HeartsService {
     this.auth.getUser().then(async (user) => {
 
       if (!gameData.participants.includes(user.uid)) {
-
         gameData.participants.push(user.uid);
 
         for (let i = 0; i < gameData.hands.length; i++) {
@@ -163,9 +165,47 @@ export class HeartsService {
             break;
           }
         }
+
         this.updateGame(gameData);
+        this.checkNumberOfParticipants(gameData, gameData.hands.length);
       }
     });
+  };
+
+
+
+  /**
+   * checkNumberOfParticipants
+   * * Method to check if game has x amount of participants.
+   * 
+   * @param gameData Parameter with game data and updated values.
+   * 
+   */
+  checkNumberOfParticipants = (gameData: Game_Hearts, maxParticipants: number) => {
+    if (gameData.participants.length === 2) { // TODO: TEMPTEMPTEMP
+      this.startGame(gameData.gameId);
+    }
+  };
+
+
+
+  /**
+   * getHand
+   * * Method to get hand of hearts.
+   * 
+   * @param gameRef Parameter for game id.
+   * @param uid Parameter for user id.
+   * 
+   */
+  getHand = async (gameRef: string, uid: string) => {
+    let hand: Card[] = [];
+
+    await getDoc(doc(getFirestore(), 'hearts', gameRef)).then((doc) => {
+      let data = doc.data() as Game_Hearts;
+      hand = data.hands.find((hand: {uid: string; hand: Card[]}) => hand.uid === uid)?.hand || [];
+    });
+
+    return hand;
   };
 
 
@@ -190,16 +230,18 @@ export class HeartsService {
    *
    * @param gameData Parameter with game data that has to be updated before starting.
    * 
-   * TODO: Only start with 4 players.
-   * 
    */
-  startGame = (gameData: Game_Hearts) => {
-    gameData.playerOrder = this.setRandomOrder(gameData.participants);
-    gameData.currentPlayer = gameData.playerOrder[0].uid;
-
-    // TODO: Start game in firebase.
-
-    this.updateGame(gameData);
+  startGame = (gameRef: string) => {
+    getDoc(doc(getFirestore(), 'hearts', gameRef))
+    .then((doc) => {
+      let data = doc.data() as Game_Hearts;
+      
+      data.playerOrder = this.setRandomOrder(data.participants);
+      
+      data.currentPlayer = data.playerOrder[0].uid;
+      
+      this.updateGame(data);
+    });
   };
 
 

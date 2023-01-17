@@ -1,6 +1,9 @@
 <div class="s-container">
+  <p>Logged player: {{uid}}</p>
+  <p>Player turn: {{currentPlayer}}</p>
+
     <!-- Temporary -->
   <div *ngFor="let hand of myHand">
-    <button>{{hand.suit}} {{hand.value}}</button>
+    <button [class.active]="uid === currentPlayer">{{hand.suit}} {{hand.value}}</button>
   </div>
 </div>
