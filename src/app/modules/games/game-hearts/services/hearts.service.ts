@@ -78,27 +78,6 @@ export class HeartsService {
 
 
   /**
-   * getGame
-   * * Method to get game data from Firestore.
-   * 
-   * @param gameRef Parameter for game id.
-   * @returns A subscription to the game data.
-   * 
-   */
-  getGame = (gameRef: string) => {
-    return this.db.collection('hearts')
-      .doc(gameRef)
-      .snapshotChanges()
-      .pipe(
-        map(doc => {
-          return { id: doc.payload.id, ...doc.payload.data() };
-        })
-      );
-  };
-
-
-
-  /**
    * joinGame
    * * Method to join an existing game of hearts.
    * - Gets data from getMessage listener.
@@ -114,6 +93,28 @@ export class HeartsService {
         let data = doc.data() as Game_Hearts;
         this.claimHand(data);
       });
+  };
+
+
+
+  /**
+   * startGame
+   * * Method to start the game of hearts.
+   *
+   * @param gameData Parameter with game data that has to be updated before starting.
+   * 
+   */
+  startGame = (gameRef: string) => {
+    getDoc(doc(getFirestore(), 'hearts', gameRef))
+    .then((doc) => {
+      let data = doc.data() as Game_Hearts;
+      
+      data.playerOrder = this.setRandomOrder(data.participants);
+      
+      data.currentPlayer = data.playerOrder[0].uid;
+      
+      this.updateGame(data);
+    });
   };
 
 
@@ -175,21 +176,6 @@ export class HeartsService {
 
 
   /**
-   * checkNumberOfParticipants
-   * * Method to check if game has x amount of participants.
-   * 
-   * @param gameData Parameter with game data and updated values.
-   * 
-   */
-  checkNumberOfParticipants = (gameData: Game_Hearts, maxParticipants: number) => {
-    if (gameData.participants.length === 2) { // TODO: TEMPTEMPTEMP
-      this.startGame(gameData.gameId);
-    }
-  };
-
-
-
-  /**
    * getHand
    * * Method to get hand of hearts.
    * 
@@ -225,23 +211,22 @@ export class HeartsService {
 
 
   /**
-   * startGame
-   * * Method to start the game of hearts.
-   *
-   * @param gameData Parameter with game data that has to be updated before starting.
+   * getGame
+   * * Method to get game data from Firestore.
+   * 
+   * @param gameRef Parameter for game id.
+   * @returns A subscription to the game data.
    * 
    */
-  startGame = (gameRef: string) => {
-    getDoc(doc(getFirestore(), 'hearts', gameRef))
-    .then((doc) => {
-      let data = doc.data() as Game_Hearts;
-      
-      data.playerOrder = this.setRandomOrder(data.participants);
-      
-      data.currentPlayer = data.playerOrder[0].uid;
-      
-      this.updateGame(data);
-    });
+  getGame = (gameRef: string) => {
+    return this.db.collection('hearts')
+      .doc(gameRef)
+      .snapshotChanges()
+      .pipe(
+        map(doc => {
+          return { id: doc.payload.id, ...doc.payload.data() };
+        })
+      );
   };
 
 
@@ -269,6 +254,21 @@ export class HeartsService {
       players.splice(random, 1);
     }
     return randomList;
+  };
+
+
+
+  /**
+   * checkNumberOfParticipants
+   * * Method to check if game has x amount of participants.
+   * 
+   * @param gameData Parameter with game data and updated values.
+   * 
+   */
+  checkNumberOfParticipants = (gameData: Game_Hearts, maxParticipants: number) => {
+    if (gameData.participants.length === 2) { // TODO: TEMPTEMPTEMP
+      this.startGame(gameData.gameId);
+    }
   };
 
 
